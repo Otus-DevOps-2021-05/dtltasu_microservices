@@ -1,0 +1,39 @@
+ docker images
+REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
+ubuntu                                               18.04               39a8cfeef173        5 days ago          63.1MB
+linuxserver/unifi-controller                         version-6.2.26      7b39a0f85b5f        2 weeks ago         705MB
+node                                                 14-alpine           f5f48375fc5d        3 weeks ago         117MB
+80                                                   base                93aa4993f385        5 weeks ago         1.08GB
+80                                                   test                8e1b9e87e4c5        6 weeks ago         1.08GB
+redis                                                latest              fad0ee7e917a        2 months ago        105MB
+nginx                                                latest              d1a364dc548d        2 months ago        133MB
+docker.elastic.co/kibana/kibana                      7.12.1              cf1c9961eeb6        3 months ago        1.06GB
+docker.elastic.co/elasticsearch/elasticsearch        7.12.1              41dc8ea0f139        3 months ago        851MB
+percona                                              5.6                 ca7e1e950ef9        4 months ago        430MB
+percona                                              5.7                 7629d725c730        4 months ago        605MB
+hello-world                                          latest              d1165f221234        4 months ago        13.3kB
+suricata-elk-docker_suricata                         latest              3de047f69000        6 months ago        308MB
+<none>                                               <none>              3129fa454be8        6 months ago        986MB
+<none>                                               <none>              1a72a963c924        6 months ago        417MB
+<none>                                               <none>              32911887df12        6 months ago        417MB
+<none>                                               <none>              e3bbda81bccb        6 months ago        417MB
+<none>                                               <none>              2c8ba04397e6        6 months ago        417MB
+<none>                                               <none>              2d786e3a1a93        6 months ago        417MB
+<none>                                               <none>              18d741175594        6 months ago        417MB
+<none>                                               <none>              c1b5c8237563        6 months ago        417MB
+<none>                                               <none>              952f2df347f9        6 months ago        417MB
+ubuntu                                               latest              f63181f19b2f        6 months ago        72.9MB
+ubuntu                                               bionic              c090eaba6b94        6 months ago        63.3MB
+registry.access.redhat.com/ubi8/ubi                  latest              3269c37eae33        7 months ago        201MB
+linuxserver/unifi-controller                         latest              4ba4e0020e35        8 months ago        765MB
+docker.elastic.co/elasticsearch/elasticsearch        6.4.1               86c6e080644a        2 years ago         828MB
+docker.elastic.co/kibana/kibana                      5.6.3               c8dca8239b98        3 years ago         643MB
+suricata-elk-docker_kibana                           latest              c8dca8239b98        3 years ago         643MB
+docker.elastic.co/logstash/logstash                  5.6.3               99db48525fb9        3 years ago         604MB
+suricata-elk-docker_logstash                         latest              99db48525fb9        3 years ago         604MB
+docker.elastic.co/elasticsearch/elasticsearch        5.6.3               865b21b970de        3 years ago         657MB
+suricata-elk-docker_elasticsearch                    latest              865b21b970de        3 years ago         657
+
+На основе образа создаются контейнеры, образ содержит "инструкцию" для создания образа.
+При выводе данных команд видно, что образ содержит данные о сетевых настройках, примаунченых
+папках и тд. Из одного образа можно запустить множество контейнеров.
