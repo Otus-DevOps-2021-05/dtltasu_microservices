@@ -18,6 +18,9 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 Чтоб данные из контейнеров сохранялись необходимо прокинуть volume
 сначала создается docker volume и указывается через параметр -v или --volume
 
+
+123
+
 ### HW Docker-2 ###
 Задание №1 со *
 
