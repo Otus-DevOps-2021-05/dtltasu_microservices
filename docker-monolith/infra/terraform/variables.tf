@@ -54,9 +54,9 @@ variable secret_key {
   description = "access key secret"
 }
 
-variable backet_name {
-  description = "name backet"
-}
+#variable backet_name {
+#  description = "name backet"
+#}
 
 variable db_nat_ip_address {
   description = "db ip address"
