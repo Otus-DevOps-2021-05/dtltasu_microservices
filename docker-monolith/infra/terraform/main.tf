@@ -5,7 +5,7 @@ provider "yandex" {
   zone                     = var.zone_id
 }
 
-resource "yandex_compute_instance" "app" {
+resource "yandex_compute_instance" "docker" {
   name = "docker-${count.index}"
   count = var.instances
 
