@@ -1,5 +1,6 @@
 # dtltasu_microservices
 dtltasu microservices repository
+[![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
 ### HW Docker-3 ###
 Задание №1 со *
