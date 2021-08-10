@@ -1,6 +1,23 @@
 # dtltasu_microservices
 dtltasu microservices repository
 
+### HW Docker-3 ###
+Задание №1 со *
+Переменные в команду docker run задаются через -e или --env
+ docker run -d --network=reddit -p 9292:9292 --env COMMENT_SERVICE_HOST=comment_new --env POST_SERVICE_HOST=post_new dtltasu/ui:1.0
+после запуска всех контейенеров с новыми переменными сервис работает
+
+Задание №2 со *
+Собрал образ на основе alpine образ получился почти в три раза меньше
+файл Dockerfile.1
+dtltasu/comment     1.1                 aae00d7377ba        22 hours ago        262MB
+dtltasu/comment     1.0                 a2a8f8342ac6        40 hours ago        769MB
+так же для уменьшения размера можно очищать следы установок пакетов
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+Чтоб данные из контейнеров сохранялись необходимо прокинуть volume
+сначала создается docker volume и указывается через параметр -v или --volume
+
 ### HW Docker-2 ###
 Задание №1 со *
 
