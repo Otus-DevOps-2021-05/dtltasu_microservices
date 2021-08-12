@@ -2,6 +2,27 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW Docker-4 ###
+Задание №1
+Изменен docker-compose для работы с несколькими сетями
+пример с пост
+post:
+    container_name: post
+    networks:
+      - front_net
+      - back_net
+
+Задаине №2-3-4
+Вынес переменные в отдельный фал .env
+post_db:
+    container_name: db
+    env_file:
+Для удобства добавлены имена контейнеров при запуске docker-compose
+
+Базовое имя проекта задается через ключь docker-compose -p name up -d
+Создан docker-compose.override.yml для изменения параметров запуска основного docker-compose, запускается через ключ -f с указанием основного файла
+и файла с нужными параметрами
+
 ### HW Docker-3 ###
 Задание №1 со *
 Переменные в команду docker run задаются через -e или --env
@@ -20,7 +41,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 сначала создается docker volume и указывается через параметр -v или --volume
 
 
-123
+
 
 ### HW Docker-2 ###
 Задание №1 со *
