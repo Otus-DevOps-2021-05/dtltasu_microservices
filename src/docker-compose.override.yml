@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+
+  ui:
+    command: puma --debug -w 2
+    volumes:
+      - ./data/ui:/data/db
+
+  post:
+    volumes:
+      - ./data/post:/data/db
+
+  comment:
+    volumes:
+      - ./data/comment:/data/db
