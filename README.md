@@ -2,6 +2,44 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW gitlab-ci-1 ###
+Для создания машины использовал packer образ с докером и terraform
+Создал директории и докер файл после запуска страница отдавала то 422, то 502
+проблему решил так:
+gitlab-rails console -e production
+
+проверил что узер root есть
+user = User.where(id: 1).first
+
+создал пароль дря рута
+user.password = 'secret_pass'
+user.password_confirmation = 'secret_pass'
+
+и сохранил
+ user.save!
+ после этих махинация страница открывалась отлично
+
+Задание №1 *
+Создал простой плайбк для развертывания Gitlab
+ansible-playbook-gitlab.yml
+
+Отключил возможность регистрации
+Создал группу и проект
+Добавил ремоте в настройки репозитория
+git remote add gitlab http://<your-vm-ip>/homework/example.git
+git push gitlab gitlab-ci-1
+
+Создал pipeline
+Добавил ранера
+задание №2 *
+Создал docker-compose для запука раннера
+docker-compose-gitlab_runner.yml
+Зарегистрировал раннера
+Проверена работа пайплайнов
+Добавлены разные окружения
+Провелена работа с тегами и динамическими окружениями
+
+
 ### HW Docker-4 ###
 Задание №1
 Изменен docker-compose для работы с несколькими сетями
