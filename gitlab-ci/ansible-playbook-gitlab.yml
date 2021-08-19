@@ -1,0 +1,24 @@
+---
+- hosts: docker-host
+  become: yes
+
+
+  tasks:
+    - name: "Start Gitlab"
+      docker_container:
+        name: Gitlab
+        image: gitlab/gitlab-ce:latest
+        state: started
+        volumes:
+          - /srv/gitlab/config:/etc/gitlab
+          - /srv/gitlab/logs:/var/log/gitlab
+          - /srv/gitlab/data:/var/opt/gitlab
+          - /srv/gitlab/logs/reconfigure:/var/log/gitlab/reconfigure
+        ports:
+          - 127.0.0.1:80:80
+          - 127.0.0.1:443:443
+          - 127.0.0.1:2222:22
+        env:
+          GITLAB_ROOT_EMAIL: "reshilov@list.ru"
+          GITLAB_ROOT_PASSWORD: "12345678"
+          GITLAB_OMNIBUS_CONFIG: "external_url 'http://178.154.252.179/'"
