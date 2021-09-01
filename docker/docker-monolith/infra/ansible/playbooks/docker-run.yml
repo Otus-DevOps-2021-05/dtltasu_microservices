@@ -1,22 +1,21 @@
 ---
-- name: Run Docker container
-  host: all
+- hosts: all
   become: true
 
 
   tasks:
-    - name: "Start certbot container"
+    - name: "Start docker container"
       docker_container:
         name: reddit
         image: dtltasu/otus-reddit:1.0
         state: started
         ports:
           - 80:9292
-      vars:
-        ansible_python_interpreter: "/bin/python3"
+#      vars:
+#      ansible_python_interpreter: "/bin/python3"
 
     - name: "logs docker"
-      shell: docker logs certbot
+      shell: docker logs reddit
       register: docker
 
     - name: "display logs"
