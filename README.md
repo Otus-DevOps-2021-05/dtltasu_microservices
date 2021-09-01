@@ -2,6 +2,24 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW monitoring-1 ###
+1. Запустили prometheus
+2. В конфиг прометеуса добавили таргеты для отображение в UI и сбора метрик
+3. Через скрипты сбилдили новые образы
+4. Добавили node-exporter (без объявления сети и портов в docker-compose прометеус его не видел)
+5. Мониторинг базы сделал на основе noenv/mongo-exporter без докер файла
+6. Так же добавил black-box экспортер для сервисов, проверил все работает (
+    для недо сделал Dockerfile и yml файл с настройками)
+7. Сделал Makefile с возможностью запускать/останавливать/билдить/пушить контейнеры,
+как все скопом так по отдельности
+для условий build up down stop logs  можно через  $(c) передавать имя контейнера
+например '''make up c=ui'''
+так жя для примера добавил функция билда не через компос а через Dockerfile
+'''
+build_dockerfile:
+	docker build -f folder_with_dockerfile/Dockerfile -t $(USER):prometheus .
+'''
+
 ### HW gitlab-ci-1 ###
 Для создания машины использовал packer образ с докером и terraform
 Создал директории и докер файл после запуска страница отдавала то 422, то 502
