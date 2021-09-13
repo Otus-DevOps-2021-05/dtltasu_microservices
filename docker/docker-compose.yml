@@ -17,25 +17,56 @@ services:
     container_name: ui
     env_file:
       - .env
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     image: ${USERNAME}/ui:${VERSION_UI}
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
     ports:
       - ${PORT}:9292/tcp
     networks:
       - front_net
 
+
   post:
+    image: ${USER_NAME}/post:${VERSION_POST}
     container_name: post
     env_file:
       - .env
-    image: ${USERNAME}/post:${VERSION_POST}
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
+      - POST_DATABASE_HOST=post_db
+      - POST_DATABASE=posts
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
     networks:
       - front_net
       - back_net
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
+#  post:
+#    container_name: post
+#    env_file:
+#      - .env
+#    image: ${USERNAME}/post:${VERSION_POST}
+#    networks:
+#      - front_net
+#      - back_net
 
   comment:
     container_name: comment
     env_file:
       - .env
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
     image: ${USERNAME}/comment:${VERSION_COMMENT}
     networks:
       - front_net
