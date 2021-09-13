@@ -2,6 +2,17 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW logging-1 ###
+1. Скопировали и сбилдили образы с тегом logging
+2. Создали инстанс для работы с логированием
+3. Создали docker-compose-logging со стеком EFK
+4. В директории logging/fluentd создали докер файл и конф файл для флюента
+5. Для сервисов в docker-compose определили драйвер для отправки логов
+6. В кибане создали индекс флюента и поигрались с поиском логов
+7. Добавили фильтра для стуктурированных логов
+8. Добавили неструктурированные логи и добавили грок шаблоны для парсинга
+9. Добавили сервис Zipkin и настроили отправку логов.
+
 ### HW monitoring-1 ###
 1. Запустили prometheus
 2. В конфиг прометеуса добавили таргеты для отображение в UI и сбора метрик
