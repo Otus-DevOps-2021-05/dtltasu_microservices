@@ -2,6 +2,43 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW Kubernetes-1 ###
+1. Создал манифесты
+2. Установил k8s и Kubeadm
+https://www.liquidweb.com/kb/how-to-install-kubernetes-using-kubeadm-on-ubuntu-18/
+
+3. Поднял кластер с мастер и воркер нодой
+root@fhmg7m6dlkofs4gu2uaq:/home/ubuntu# kubectl get no
+NAME                   STATUS   ROLES                  AGE    VERSION
+fhm9fcn8o5ornm9bdgeh   Ready    <none>                 118m   v1.22.2
+fhmg7m6dlkofs4gu2uaq   Ready    control-plane,master   133m   v1.22.2
+
+После первого запуска ноды были в статусе NotReady
+для их запуска установил сетевой плагин и раскоментил строчки с сетевыми настройками
+curl https://docs.projectcalico.org/manifests/calico.yaml -O
+
+раскомментируем переменную CALICO_IPV4POOL_CIDR в манифесте и установить для нее то же значение 10.244.0.0/16
+
+kubectl apply -f calico.yaml
+
+4. Применил ранее созданный манифест
+kubectl apply -f test.yaml
+
+пода поднялась
+root@fhmg7m6dlkofs4gu2uaq:/home/ubuntu# kubectl get po
+NAME                                  READY   STATUS    RESTARTS   AGE
+comment-deployment-85bc889b59-n8nf9   1/1     Running   0          39m
+
+Для получения данных и запуска манифестов с локальной машины
+пользуюсь командами
+kubectl --kubeconfig ~/.kube/conf-1 apply -f comment-deployment.yml
+kubectl --kubeconfig ~/.kube/conf-1 get po
+
+пока не разобрался как перенести эти данные в основной конфиг куба, при копировании их в файл
+~/.kube/config получаю ошибку
+
+Попробовал экспортировать в переменную KUBECONFIG=~/.kube/config:~/.kube/сonf-1  - тоже не сработало
+
 ### HW logging-1 ###
 1. Скопировали и сбилдили образы с тегом logging
 2. Создали инстанс для работы с логированием
