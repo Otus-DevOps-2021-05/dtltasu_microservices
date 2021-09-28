@@ -2,6 +2,26 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+
+### HW Kubernetes-2 ###
+1. Установили kubectl и minikube
+2. Создали манифесты для deployment, service и для создания namespaces
+3. Применили манифесты в локальном окружении kubectl apply -f <file_name>
+4. Убедились что все работает.
+5. Создали властер в яндекс клауде и задеплоили наше приложение, проверили, все работает.
+Ниже скриншот и ссылка для доступа к приложению.
+http://62.84.116.34:32092/
+![Screenshot](Xnip2021-09-27_11-02-00.jpg)
+
+Задание со звездочкой пока отложил, т.к. отстал по не выполненым ДЗ.
+Но к этому заданию обязательно вернусь.
+И спасибо гуглу за варианты исполнения:
+https://github.com/sport24ru/terraform-yandex-managed-kubernetes
+https://github.com/claustrophobia-com/yandex-cloud-kubernetes
+https://habr.com/ru/post/574514/
+https://github.com/kubernetes/dashboard/blob/master/aio/test-resources/kubernetes-dashboard-local.yaml
+
+
 ### HW Kubernetes-1 ###
 1. Создал манифесты
 2. Установил k8s и Kubeadm
