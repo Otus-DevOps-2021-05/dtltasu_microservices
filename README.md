@@ -2,6 +2,31 @@
 dtltasu microservices repository
 [![Run tests for OTUS homework](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml/badge.svg)](https://github.com/Otus-DevOps-2021-05/dtltasu_microservices/actions/workflows/run-tests.yml)
 
+### HW Kubernetes-3 ###
+1. Настроили LoadBalancer
+2. Переехал в google, т.к. не поулчилось запустить nginx controller в ya cloud, так же не получилось заставить работать блокировщик http в contour.
+3. В гугле с помощью ранее созданных манифестов развернул наше приложение.
+4. Установил nginx controller
+
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install nginx-ingress ingress-nginx/ingress-nginx
+```
+5. Создал secret и отправил его в файл
+
+```
+kubectl get secret ui-ingress -o yaml -ndev >> secret.yml
+```
+6. Создал networkPolicy для разделения трафика
+7. Создал диск
+```
+gcloud compute disks create k8s --zone=europe-west4-a --size=10GB --description="disk for k8s"
+```
+8. Создал манифесты для PV и для PVC
+много побаловавшись с волюмами, дисками и клаймами, понял что диск создается глобално для всего инстанса,
+а PV и PVC создаются в неймспейсе, иначе монга не понимается
+
 
 ### HW Kubernetes-2 ###
 1. Установили kubectl и minikube
